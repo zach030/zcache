@@ -15,7 +15,7 @@ type Group struct {
 	calls map[string]*call
 }
 
-//第一个get(key)请求到来时，singleflight会记录当前key正在被处理，
+//第一个get(key)请求到来时，single-fly会记录当前key正在被处理，
 //后续的请求只需要等待第一个请求处理完成，取返回值即可
 func (g *Group) DoSingle(key string, fn func() (interface{}, error)) (interface{}, error) {
 	g.lock.Lock()
